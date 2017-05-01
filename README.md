@@ -1,5 +1,6 @@
-# open_doc
-koa, boilerplate
+# clect_boilerplate
+koa, boilerplate about fe
+
 
 
 1. git clone git@github.com:Clect/open_doc.git
