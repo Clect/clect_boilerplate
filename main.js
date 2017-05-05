@@ -13,12 +13,12 @@ let app = new koa();
 
 app.use(convert(gzip()));
 
-app.use(staticCache(path.join(__dirname, 'static'), {
+app.use(staticCache(path.join(__dirname, 'public'), {
 		'gzip': true
 }));
 app.use(convert(koaBody({formidable:{uploadDir: '/tmp'}, multipart: true})));
 
-app.use(convert(function *loggerAsync(next) {
+app.use(convert(function*loggerAsync(next) {
 	let now = new Date();
 	this.orig_path = this.path;
 	this.orig_query = objectAssign({}, this.query);
@@ -60,7 +60,7 @@ app.use(convert(function *loggerAsync(next) {
 	}
 }));
 
-app.use(convert(function *initHelpersAsync(next) {
+app.use(convert(function*initHelpersAsync(next) {
 	this.U = require('./util');
 	
 	this.xfields = objectAssign({}, this.request.body.fields || this.request.body);
