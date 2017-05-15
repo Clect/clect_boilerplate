@@ -5,7 +5,7 @@
     <script type="text/javascript" src="/js/jquery.js"></script>
     <%
       (opt.css || []).forEach(function(c) {
-      %><link rel="stylesheet" href="<%= c %>" /><%
+      %><link rel="stylesheet" href="<%='/css/' + c + '.css' %>" /><%
       });
     %>
   </head>
